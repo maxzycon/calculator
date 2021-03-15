@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <title>Calc Online</title>
+  </head>
+  <body>
+      <div class="container" style="padding-top: 20vh;">
+          <div class="row justify-content-center">
+            <div class="col-12 col-lg-5">
+                
+                <div class="card" >
+                    <div class="card-body">
+                      
+                        <table class="table table-borderless">
+                            <tr>
+                                <td colspan="4"><input style="text-align: right;" readonly class="py-5 form-control" id="monitor"/></td>
+                            </tr>
+                            <tr align="center">
+                                <td><button class="btn" id="tambah" onclick="operator('+')" style="width: 100%;height: 100%;display: flex;background-color: #d5d5d5;">+</button></td>
+                                <td><button class="btn" id="kurang" onclick="operator('-')" style="width: 100%;height: 100%;display: flex;background-color: #d5d5d5;">-</button></td>
+                                <td><button class="btn" id="kali" onclick="operator('*')" style="width: 100%;height: 100%;display: flex;background-color: #d5d5d5;">x</button></td>
+                                <td><button class="btn" id="bagi" onclick="operator('/')" style="width: 100%;height: 100%;display: flex;background-color: #d5d5d5;">&#247;</button></td>
+                            </tr>
+                            <tr align="center">
+                                <td><button class="btn bilangan" data-bil="7" id="tujuh" onclick="monitor(7)" style="width: 100%;height: 100%;display: flex;background-color: #d5d5d5;">7</button></td>
+                                <td><button class="btn bilangan" data-bil="8" id="delapan" onclick="monitor(8)" style="width: 100%;height: 100%;display: flex;background-color: #d5d5d5;">8</button></td>
+                                <td><button class="btn bilangan" data-bil="9" id="sembilan" onclick="monitor(9)" style="width: 100%;height: 100%;display: flex;background-color: #d5d5d5;">9</button></td>
+                                <td rowspan="5"><button id="samadengan" onclick="result()" class="btn bilangan px-3 text-white" style="width: 100%;height: 100%;padding-bottom: 100px;padding-top:80px;display: flex;background-color: blue;">=</button></td>
+                            </tr>
+                            <tr align="center">
+                                <td><button class="btn bilangan" data-bil="4" onclick="monitor(4)" id="empat" style="width: 100%;height: 100%;display: flex;background-color: #d5d5d5;">4</button></td>
+                                <td><button class="btn bilangan" data-bil="5" id="lima" onclick="monitor(5)" style="width: 100%;height: 100%;display: flex;background-color: #d5d5d5;">5</button></td>
+                                <td><button class="btn bilangan" data-bil="6" id="enam" onclick="monitor(4)" style="width: 100%;height: 100%;display: flex;background-color: #d5d5d5;">6</button></td>
+                            </tr>
+                            <tr align="center">
+                                <td><button class="btn bilangan" data-bil="1" id="satu" onclick="monitor(1)" style="width: 100%;height: 100%;display: flex;background-color: #d5d5d5;">1</button></td>
+                                <td><button class="btn bilangan" data-bil="2" id="dua" onclick="monitor(2)" style="width: 100%;height: 100%;display: flex;background-color: #d5d5d5;">2</button></td>
+                                <td><button class="btn bilangan" data-bil="3" id="tiga" onclick="monitor(3)" style="width: 100%;height: 100%;display: flex;background-color: #d5d5d5;">3</button></td>
+                            </tr>
+                            <tr align="center">
+                                <td><button class="btn bilangan" data-bil="0" id="nol" onclick="monitor(0)" style="width: 100%;height: 100%;display: flex;background-color: #d5d5d5;">0</button></td>
+                                <td><button class="btn" id="titik" onclick="monitor('.')" style="width: 100%;height: 100%;display: flex;background-color: #d5d5d5;">.</button></td>
+                                <td><button class="btn" onclick="clearmonitor()" id="clear" style="width: 100%;height: 100%;display: flex;background-color: #d5d5d5;">C</button></td>
+                            </tr>
+                        </table>
+            
+                    </div>
+                  </div>
+            </div>
+          </div>
+      </div>
+    
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+
+    <script>
+        function monitor(pass){
+            // assign angka kedalam monitor
+            document.getElementById("monitor").value += pass;
+        }
+
+        function operator(operator){
+            // operator function + - * / etc
+            document.getElementById("monitor").value += operator;
+        }
+
+        function clearmonitor(){
+            // get id monitor then set value 0
+            document.getElementById("monitor").value = "";
+        }
+
+        function result(){
+            // data di monitor
+            let datamonitor = document.getElementById("monitor").value;
+            // jumlahkan data dimonitor
+            let result = eval(datamonitor);
+            // show hasil penjumlahan
+            document.getElementById("monitor").value = result;
+        }
+    </script>
+  </body>
+</html>
